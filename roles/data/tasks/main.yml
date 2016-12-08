@@ -1,0 +1,4 @@
+---
+
+- name: Copy data.csv
+  copy: src=data.csv dest=/root/

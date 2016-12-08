@@ -1,0 +1,13 @@
+---
+
+- name: install wget
+  yum: name=wget state=installed
+
+- name: install python 3.4
+  yum: name=python34 state=installed
+
+- name: Get pip3
+  shell: "wget https://bootstrap.pypa.io/get-pip.py"
+
+- name: Install pip3
+  shell: "python3 get-pip.py"

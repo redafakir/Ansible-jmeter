@@ -1,0 +1,22 @@
+---
+
+- name: Copy JMX
+  copy: src=csrf_token_csv_data.jmx dest=/root/
+
+- name: Copy JMX
+  copy: src=csrf_token_origin.jmx dest=/root/
+
+- name: Copy JMX
+  copy: src=csrf_token_regex.jmx dest=/root/
+
+- name: Copy JMX
+  copy: src=csrf_token_reponse_assertion.jmx dest=/root/
+
+- name: Copy JMX
+  copy: src=csrf_token_user_defined_variable.jmx dest=/root/
+
+- name: Copy JMX
+  copy: src=csrf_token_user_defined_variable_graphic.jmx dest=/root/
+
+- name: Copy JMX
+  copy: src="Thread Group.jmx" dest=/root/

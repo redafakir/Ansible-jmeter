@@ -1,0 +1,9 @@
+---
+- name: Jmeter
+  hosts: jmeter-server
+  remote_user: root
+  roles:
+    - python
+    - files_jmx
+    - data
+    - jmeter

@@ -1,0 +1,30 @@
+---
+
+- name: Install Packages
+  yum: name={{ item }} state=installed
+  with_items:
+    - wget
+    - tar
+    - java-1.8.0-openjdk.x86_64
+
+- name: Get pip3
+  shell: "wget https://bootstrap.pypa.io/get-pip.py"
+
+- name: Install pip3
+  shell: "python3 get-pip.py"
+
+- name: Get jmter
+  shell: "wget http://apache.mirrors.ovh.net/ftp.apache.org/dist//jmeter/binaries/apache-jmeter-3.1.tgz"
+
+- name: decompresse jmeter
+  shell: "tar -xvzf apache-jmeter-3.1.tgz"
+
+- name: delete folders
+  shell: "rm -f apache-jmeter-3.1.tgz"
+  shell: "rm -fr /root/apache-jmeter-3.1/docs"
+
+- name: volume results
+  file: path=/root/serveur.jmeter/results state=directory
+
+- name: run jmeter
+  shell: /root/apache-jmeter-3.1/bin/jmeter -JHOST=192.167.124.133 -JPORT=5000 -JNBR_USER=50 -n -Jjmeter.save.saveservice.output_format=xml -Jjmeter.save.saveservice.assertion_results=all -Jjmeter.save.saveservice.response_data=true -Jjmeter.save.saveservice.autoflush=true -t csrf_token_csv_data.jmx -l /root/results/tests_results.jtl
